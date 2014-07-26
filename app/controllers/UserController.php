@@ -32,7 +32,7 @@ class UserController extends \BaseController {
    		echo "login berhasil";
 	}
 	else{
-  		return Redirect::to('login')->with('pesan_error', 'Login gagal, email atau password salah!');
+  		return Redirect::to('login')->with('pesan', 'Login gagal, email atau password salah!');
 	}
 	}
 
