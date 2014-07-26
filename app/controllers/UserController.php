@@ -19,6 +19,23 @@ class UserController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	public function login()
+	{
+		return View::make('login');
+
+	}
+
+	public function otorisasi()
+	{
+		if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password'))))
+	{
+   		echo "login berhasil";
+	}
+	else{
+  		return Redirect::to('login')->with('pesan_error', 'Login gagal, email atau password salah!');
+	}
+	}
+
 	public function register()
 	{
 		return View::make('register');
