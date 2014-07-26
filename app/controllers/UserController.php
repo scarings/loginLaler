@@ -1,4 +1,4 @@
-	
+    
 
 <?php
 
@@ -29,16 +29,16 @@ return View::make('login');
 
 public function otorisasi()
 {
-	$username=Input::get('username');
-	$password=Input::get('password');
-	$passhash=Crypt::encrypt($password);
+    $username=Input::get('username');
+    $password=Input::get('password');
+    $passhash=Crypt::encrypt($password);
 
 if (Auth::attempt(array('username' => $username, 'password' => $password)))
 {
-    return Redirect::to('http://facebook.com');
+    echo "login berhasil";
 }
 else{
-   return Redirect::to('login')->with('pesan', 'Login gagal, username atau password salah!');
+   return Redirect::to('login')->with('pesan', 'Login gagal, email atau password salah!');
 }
 }
 
